@@ -6,6 +6,7 @@ const Machine = require('./data/Machine')
 const { where } = require('sequelize/dist')
 const simulator = require('./simulator/simulator')
 const Config = require('./data/Config')
+const port = process.env.PORT || 3000
 
 app.set('view engine','ejs')
 app.use(express.static('public'))
@@ -84,17 +85,17 @@ app.post('/config', (req, res) => {
     
     time = (time * 60) * 1000
 
-    Config.update({time: time},{
-        where: {
-        id: 1
-        }
-    }).then(() => {
-        res.redirect('/')
-    })
+        Config.update({time: time},{
+            where: {
+            id: 1
+            }
+        }).then(() => {
+            res.redirect('/')
+        })
 })
 
 simulator()
 
-app.listen(8080 , () => {
+app.listen(port, () => {
     console.log('O servidor está rodando')
 })
