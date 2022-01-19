@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize')
+const Config = require('./Config')
 const connection = require('./database')
 
 const Machine = connection.define('machines',{

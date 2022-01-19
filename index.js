@@ -3,7 +3,9 @@ const app = express()
 const bodyParser = require('body-parser')
 const connection = require('./data/database')
 const Machine = require('./data/Machine')
-
+const { where } = require('sequelize/dist')
+const simulator = require('./simulator/simulator')
+const Config = require('./data/Config')
 
 app.set('view engine','ejs')
 app.use(express.static('public'))
@@ -77,6 +79,22 @@ app.post('/delete',(req, res) => {
     }
 })
 
-app.listen(8080, () => {
+app.post('/config', (req, res) => {
+    let time = Number(req.body.time)
+    
+    time = (time * 60) * 1000
+
+    Config.update({time: time},{
+        where: {
+        id: 1
+        }
+    }).then(() => {
+        res.redirect('/')
+    })
+})
+
+simulator()
+
+app.listen(8080 , () => {
     console.log('O servidor está rodando')
 })
