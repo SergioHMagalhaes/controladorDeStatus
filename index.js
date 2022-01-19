@@ -3,7 +3,6 @@ const app = express()
 const bodyParser = require('body-parser')
 const connection = require('./data/database')
 const Machine = require('./data/Machine')
-const { where } = require('sequelize/dist')
 const simulator = require('./simulator/simulator')
 const Config = require('./data/Config')
 const port = process.env.PORT || 8080
