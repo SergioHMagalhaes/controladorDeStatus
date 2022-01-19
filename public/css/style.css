@@ -1,0 +1,27 @@
+.input-settings{
+        width: 10vw;
+        display: flex;
+    }
+.status-icon{
+        display: none;
+    }
+.status{
+        width: 10vw;
+    }
+@media screen and (max-width: 900px){
+    .status{
+        width: 5vw;
+        height: 5vh;
+    }
+    .status-text{
+            display: none;
+    }
+    .status-icon{
+        display: block;
+        margin: auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        
+    }
+}

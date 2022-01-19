@@ -6,7 +6,7 @@ const Machine = require('./data/Machine')
 const { where } = require('sequelize/dist')
 const simulator = require('./simulator/simulator')
 const Config = require('./data/Config')
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
 
 app.set('view engine','ejs')
 app.use(express.static('public'))
